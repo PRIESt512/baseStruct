@@ -35,9 +35,11 @@ public class SingleArray<T> implements IArray<T> {
         if (index > size()) {
             throw new IllegalArgumentException("Некорректный индекс");
         }
-        resize();
-        System.arraycopy(array, index, array, index + 1, size() - index - 1);
-        array[index] = item;
+        Object[] newArray = new Object[size() + 1];
+        System.arraycopy(array, 0, newArray, 0, index);
+        newArray[index] = item;
+        System.arraycopy(array, index, newArray, index + 1, array.length - index);
+        array = newArray;
     }
 
     @Override

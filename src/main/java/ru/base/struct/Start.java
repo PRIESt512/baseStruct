@@ -10,19 +10,21 @@ import ru.base.struct.priority.queue.PQueue;
 public class Start {
 
     public static void main(String[] args) {
-       /* IArray<Integer> test = new FactorArray<>();
+        IArray<Integer> test = new SingleArray<>();
         test.add(1);//0
         test.add(2);//1
         test.add(3);//2
         test.add(4);//3
         test.add(5);//4
         test.add(6);//5
+        test.add(7);//6
 
-        test.add(5, 0);
+
+        test.add(50, 6);
         System.out.println(test.get(0));
-        System.out.println(test.remove(0));*/
+        System.out.println(test.remove(0));
 
-        PQueue<Integer> pQueue = new PQueue<>(true, true);
+        /*PQueue<Integer> pQueue = new PQueue<>(true, true);
 
         pQueue.enqueue(50, 12);
         pQueue.enqueue(65, 21);
@@ -32,6 +34,6 @@ public class Start {
         System.out.println(pQueue.dequeue());
         System.out.println(pQueue.dequeue());
         System.out.println(pQueue.dequeue());
-        System.out.println(pQueue.dequeue());
+        System.out.println(pQueue.dequeue());*/
     }
 }

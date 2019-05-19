@@ -32,7 +32,7 @@ public class FactorArray<T> implements IArray<T> {
     @Override
     @SuppressWarnings("unchecked")
     public T get(int index) {
-        return (T)array[index];
+        return (T) array[index];
     }
 
     @Override
@@ -45,10 +45,16 @@ public class FactorArray<T> implements IArray<T> {
         if (index > size()) {
             throw new IllegalArgumentException("Некорректный индекс");
         }
-        if (size() == array.length)
-            resize();
-        System.arraycopy(array, index, array, index + 1, size() - index);
-        array[index] = item;
+        if (size() == array.length) {
+            Object[] newArray = new Object[array.length + array.length * factor / 100];
+            System.arraycopy(array, 0, newArray, 0, index);
+            newArray[index] = item;
+            System.arraycopy(array, index, newArray, index + 1, array.length - index);
+            array = newArray;
+        } else {
+            System.arraycopy(array, index, array, index + 1, size() - index);
+            array[index] = item;
+        }
         size++;
     }
 
